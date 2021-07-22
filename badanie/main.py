@@ -45,6 +45,13 @@ class MainWindow(QtWidgets.QMainWindow):
         #set video player
         self.player = QtMultimedia.QMediaPlayer()
         self.player.setVideoOutput(self.ui.videoPlayer)
+        def handle_state_changed(state):
+            if state == QtMultimedia.QMediaPlayer.PlayingState:
+                print("started")
+            elif state == QtMultimedia.QMediaPlayer.StoppedState:
+                print("finished")
+                self.emotion()
+        self.player.stateChanged.connect(handle_state_changed)
         
         self.currentVideo = 1
         
@@ -64,8 +71,11 @@ class MainWindow(QtWidgets.QMainWindow):
         self.playVideo()
         
     def playVideo(self):
-        self.player.setMedia(QtMultimedia.QMediaContent(QtCore.QUrl.fromLocalFile("videoplayback.mp4")))
+        self.player.setMedia(QtMultimedia.QMediaContent(QtCore.QUrl.fromLocalFile("videos/videoplayback.mp4")))
         self.player.play()
+    
+    def emotion(self):
+        self.ui.stackedWidget.setCurrentWidget(self.ui.page_4)
 
     def btnNextClicked(self):
         if self.currentVideo != videoNum:
