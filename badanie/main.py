@@ -45,30 +45,51 @@ class MainWindow(QtWidgets.QMainWindow):
         #set video player
         self.player = QtMultimedia.QMediaPlayer()
         self.player.setVideoOutput(self.ui.videoPlayer)
-        def handle_state_changed(state):
+        def videoStateChanged(state):
             if state == QtMultimedia.QMediaPlayer.PlayingState:
                 print("started")
             elif state == QtMultimedia.QMediaPlayer.StoppedState:
                 print("finished")
                 self.emotion()
-        self.player.stateChanged.connect(handle_state_changed)
+        self.player.stateChanged.connect(videoStateChanged)
+        
+        self.musicPlayer = QtMultimedia.QMediaPlayer()
+        self.musicPlayer.setMedia(QtMultimedia.QMediaContent(QtCore.QUrl.fromLocalFile("music/Sleep_Mountain.mp3")))
+        def musicStateChangedClose(state):
+            if state == QtMultimedia.QMediaPlayer.PlayingState:
+                print("started")
+            elif state == QtMultimedia.QMediaPlayer.StoppedState:
+                print("finished")
+                self.musicPlayer.stateChanged.connect(musicStateChangedOpen)
+                self.relaxOpen()
+        def musicStateChangedOpen(state):
+            if state == QtMultimedia.QMediaPlayer.PlayingState:
+                print("started")
+            elif state == QtMultimedia.QMediaPlayer.StoppedState:
+                print("finished")
+                self.ui.stackedWidget.setCurrentWidget(self.ui.page_3)
+                self.playVideo()
+        self.musicPlayer.stateChanged.connect(musicStateChangedClose)
+        self.musicPlayer2 = QtMultimedia.QMediaPlayer()
+        self.musicPlayer2.setMedia(QtMultimedia.QMediaContent(QtCore.QUrl.fromLocalFile("music/Sleep_Mountain.mp3")))
+        self.musicPlayer2.stateChanged.connect(musicStateChangedOpen)
         
         self.currentVideo = 1
         
         self.show()
     
     def relaxClose(self):
-        print("close")
+        print("closeTUUUUUUUUU")
         self.ui.stackedWidget.setCurrentWidget(self.ui.page_1)
-        QtTest.QTest.qWait(60000)
-        self.relaxOpen()
+        self.musicPlayer.play()
+        #QtTest.QTest.qWait(60000)
+        
         
     def relaxOpen(self):
-        print("open")
+        print("openTUUUU")
         self.ui.stackedWidget.setCurrentWidget(self.ui.page_2)
-        QtTest.QTest.qWait(60000)
-        self.ui.stackedWidget.setCurrentWidget(self.ui.page_3)
-        self.playVideo()
+        self.musicPlayer2.play()
+        
         
     def playVideo(self):
         self.player.setMedia(QtMultimedia.QMediaContent(QtCore.QUrl.fromLocalFile("videos/videoplayback.mp4")))
@@ -83,6 +104,8 @@ class MainWindow(QtWidgets.QMainWindow):
             self.ui.labelVideoNum_1.setText("Film "+str(self.currentVideo))
             self.ui.stackedWidget.setCurrentWidget(self.ui.page_3)
             self.playVideo()
+        else:
+            QtCore.QCoreApplication.quit()
             
 
 if __name__ == "__main__":
