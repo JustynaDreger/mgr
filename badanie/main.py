@@ -102,6 +102,8 @@ class MainWindow(QtWidgets.QMainWindow):
         if self.currentVideo != videoNum:
             self.currentVideo = self.currentVideo + 1
             self.ui.labelVideoNum_1.setText("Film "+str(self.currentVideo))
+            self.ui.labelVideoNum_2.setText("Film "+str(self.currentVideo))
+            self.ui.label_num.setText(str(self.currentVideo)+"/"+str(videoNum))
             self.ui.stackedWidget.setCurrentWidget(self.ui.page_3)
             self.playVideo()
         else:
