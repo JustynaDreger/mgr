@@ -3,6 +3,8 @@
 Created on Tue Jul 20 20:38:23 2021
 
 @author: justyna
+
+pyuic5 -x mgrTest.ui -o mgrTest.py
 """
 """
 przygotuje Pan skrypt, którego zadaniem będzie odtworzenie wybranych
@@ -22,5 +24,57 @@ przygotuje Pan skrypt, którego zadaniem będzie odtworzenie wybranych
  W trakcie każdej zmiany ekranu będzie Pani przesyłała informacje o zdarzeniu do systemu rejestrującego sygnał EEG,
  ale o tym napiszę Pani później jak przygotuje Pani skrypt.
 """
-if __name__== '__main__':
-    pass
+import sys
+import time
+from PyQt5 import QtCore, QtGui, QtWidgets, QtMultimedia, QtTest
+from PyQt5.uic import loadUi
+import mainWindow
+import mgrTest
+
+videoNum = 3
+class MainWindow(QtWidgets.QMainWindow):
+    def __init__(self):
+        QtWidgets.QMainWindow.__init__(self)
+        self.ui = mainWindow.Ui_MainWindow()
+        self.ui.setupUi(self)
+
+        # PAGE 1
+        self.ui.btnBegin.clicked.connect(self.relaxClose)
+        self.ui.btnNext.clicked.connect(self.btnNextClicked)
+
+        #set video player
+        self.player = QtMultimedia.QMediaPlayer()
+        self.player.setVideoOutput(self.ui.videoPlayer)
+        
+        self.currentVideo = 1
+        
+        self.show()
+    
+    def relaxClose(self):
+        print("close")
+        self.ui.stackedWidget.setCurrentWidget(self.ui.page_1)
+        QtTest.QTest.qWait(60000)
+        self.relaxOpen()
+        
+    def relaxOpen(self):
+        print("open")
+        self.ui.stackedWidget.setCurrentWidget(self.ui.page_2)
+
+        QtTest.QTest.qWait(60000)
+        self.ui.stackedWidget.setCurrentWidget(self.ui.page_3)
+        
+    def playVideo(self):
+        self.player.setMedia(QtMultimedia.QMediaContent(""))
+        self.player.play()
+
+    def btnNextClicked(self):
+        if self.currentVideo != videoNum:
+            self.currentVideo = self.currentVideo + 1
+            self.ui.labelVideoNum_1.setText("Film "+str(self.currentVideo))
+            self.ui.stackedWidget.setCurrentWidget(self.ui.page_3)
+            
+
+if __name__ == "__main__":
+    app = QtWidgets.QApplication(sys.argv)
+    window = MainWindow()
+    sys.exit(app.exec_())
