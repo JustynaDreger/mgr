@@ -59,12 +59,12 @@ class MainWindow(QtWidgets.QMainWindow):
     def relaxOpen(self):
         print("open")
         self.ui.stackedWidget.setCurrentWidget(self.ui.page_2)
-
         QtTest.QTest.qWait(60000)
         self.ui.stackedWidget.setCurrentWidget(self.ui.page_3)
+        self.playVideo()
         
     def playVideo(self):
-        self.player.setMedia(QtMultimedia.QMediaContent(""))
+        self.player.setMedia(QtMultimedia.QMediaContent(QtCore.QUrl.fromLocalFile("videoplayback.mp4")))
         self.player.play()
 
     def btnNextClicked(self):
@@ -72,6 +72,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.currentVideo = self.currentVideo + 1
             self.ui.labelVideoNum_1.setText("Film "+str(self.currentVideo))
             self.ui.stackedWidget.setCurrentWidget(self.ui.page_3)
+            self.playVideo()
             
 
 if __name__ == "__main__":
