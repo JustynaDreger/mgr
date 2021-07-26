@@ -1,7 +1,6 @@
 ,videoID,questionID,answer
-0,1,1,Happy
-1,1,1,Sad
+0,1,1,Angry
+1,1,1,Suprised
 2,2,1,Angry
-3,2,1,Suprised
-4,3,1,Fear
-5,3,1,Disgust
+3,2,1,Fear
+4,3,1,Sad

@@ -79,7 +79,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.currentVideo = 1
         
         self.data = pd.DataFrame(columns=["videoID","questionID","answer"])
-        
+        self.answers = self.data.copy()
         
         self.show()
     
@@ -113,6 +113,8 @@ class MainWindow(QtWidgets.QMainWindow):
             
         else:
             if self.currentVideo != videoNum:
+                
+                self.checkAnswers()                       
                 self.currentVideo = self.currentVideo + 1
                 self.ui.labelVideoNum_1.setText("Film "+str(self.currentVideo))
                 self.ui.labelVideoNum_2.setText("Film "+str(self.currentVideo))
@@ -122,11 +124,25 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.playVideo()
             else:
                 self.saveData()
+                self.checkAnswers()
+                self.sumAnswers()
+                print(self.answers)
                 self.ui.stackedWidget.setCurrentWidget(self.ui.page_6)
-            
+           
     def saveData(self):
         print("Zapis danych")
         self.data.to_csv("answers.csv")
+    
+    def checkAnswers(self):
+        for radio in self.ui.page_5.findChildren(QtWidgets.QRadioButton):
+            if radio.isChecked():
+                self.answers = self.answers.append({"videoID":self.currentVideo,"questionID":radio.objectName()[-2],"answer":radio.objectName()[-2:]}, ignore_index=True)
+                radio.setAutoExclusive(False)
+                radio.setChecked(False)
+                radio.setAutoExclusive(True)
+    
+    def sumAnswers(self):
+        pass
     
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
