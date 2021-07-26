@@ -27,7 +27,7 @@
      <bool>true</bool>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>4</number>
     </property>
     <widget class="QWidget" name="page_0">
      <widget class="QLabel" name="labelTitel">
@@ -815,7 +815,7 @@
         <string>radość</string>
        </property>
       </widget>
-      <widget class="QCheckBox" name="checkBoxHappy_2">
+      <widget class="QCheckBox" name="checkBoxAngry">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -833,7 +833,7 @@
         <string>złość</string>
        </property>
       </widget>
-      <widget class="QCheckBox" name="checkBoxHappy_3">
+      <widget class="QCheckBox" name="checkBoxSad">
        <property name="geometry">
         <rect>
          <x>160</x>
@@ -851,7 +851,7 @@
         <string>smutek</string>
        </property>
       </widget>
-      <widget class="QCheckBox" name="checkBoxHappy_4">
+      <widget class="QCheckBox" name="checkBoxFear">
        <property name="geometry">
         <rect>
          <x>160</x>
@@ -869,7 +869,7 @@
         <string>strach</string>
        </property>
       </widget>
-      <widget class="QCheckBox" name="checkBoxHappy_5">
+      <widget class="QCheckBox" name="checkBoxDisgust">
        <property name="geometry">
         <rect>
          <x>290</x>
@@ -887,7 +887,7 @@
         <string>wstręt</string>
        </property>
       </widget>
-      <widget class="QCheckBox" name="checkBoxHappy_6">
+      <widget class="QCheckBox" name="checkBoxSuprised">
        <property name="geometry">
         <rect>
          <x>290</x>

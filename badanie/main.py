@@ -26,6 +26,7 @@ przygotuje Pan skrypt, którego zadaniem będzie odtworzenie wybranych
 """
 import sys
 import time
+import pandas as pd
 from PyQt5 import QtCore, QtGui, QtWidgets, QtMultimedia, QtTest
 from PyQt5.uic import loadUi
 import mainWindow
@@ -77,6 +78,9 @@ class MainWindow(QtWidgets.QMainWindow):
         
         self.currentVideo = 1
         
+        self.data = pd.DataFrame(columns=["videoID","questionID","answer"])
+        
+        
         self.show()
     
     def relaxClose(self):
@@ -101,7 +105,12 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def btnNextClicked(self):
         if self.ui.stackedWidget.currentIndex() == 4:
+            for box in self.ui.groupBoxEmotion1.findChildren(QtWidgets.QCheckBox):
+                if box.isChecked():
+                    self.data = self.data.append({"videoID":self.currentVideo,"questionID":1,"answer":box.objectName()[8:]}, ignore_index=True)
+                    box.setChecked(False)
             self.ui.stackedWidget.setCurrentWidget(self.ui.page_5)
+            
         else:
             if self.currentVideo != videoNum:
                 self.currentVideo = self.currentVideo + 1
@@ -112,9 +121,13 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.ui.stackedWidget.setCurrentWidget(self.ui.page_3)
                 self.playVideo()
             else:
+                self.saveData()
                 self.ui.stackedWidget.setCurrentWidget(self.ui.page_6)
             
-
+    def saveData(self):
+        print("Zapis danych")
+        self.data.to_csv("answers.csv")
+    
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     window = MainWindow()
