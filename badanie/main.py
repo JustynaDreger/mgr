@@ -41,6 +41,7 @@ class MainWindow(QtWidgets.QMainWindow):
         # PAGE 1
         self.ui.btnBegin.clicked.connect(self.relaxClose)
         self.ui.btnNext.clicked.connect(self.btnNextClicked)
+        self.ui.btnNext_2.clicked.connect(self.btnNextClicked)
 
         #set video player
         self.player = QtMultimedia.QMediaPlayer()
@@ -99,15 +100,19 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.stackedWidget.setCurrentWidget(self.ui.page_4)
 
     def btnNextClicked(self):
-        if self.currentVideo != videoNum:
-            self.currentVideo = self.currentVideo + 1
-            self.ui.labelVideoNum_1.setText("Film "+str(self.currentVideo))
-            self.ui.labelVideoNum_2.setText("Film "+str(self.currentVideo))
-            self.ui.label_num.setText(str(self.currentVideo)+"/"+str(videoNum))
-            self.ui.stackedWidget.setCurrentWidget(self.ui.page_3)
-            self.playVideo()
+        if self.ui.stackedWidget.currentIndex() == 4:
+            self.ui.stackedWidget.setCurrentWidget(self.ui.page_5)
         else:
-            QtCore.QCoreApplication.quit()
+            if self.currentVideo != videoNum:
+                self.currentVideo = self.currentVideo + 1
+                self.ui.labelVideoNum_1.setText("Film "+str(self.currentVideo))
+                self.ui.labelVideoNum_2.setText("Film "+str(self.currentVideo))
+                self.ui.labelVideoNum_3.setText("Film "+str(self.currentVideo))
+                self.ui.label_num.setText(str(self.currentVideo)+"/"+str(videoNum))
+                self.ui.stackedWidget.setCurrentWidget(self.ui.page_3)
+                self.playVideo()
+            else:
+                self.ui.stackedWidget.setCurrentWidget(self.ui.page_6)
             
 
 if __name__ == "__main__":
