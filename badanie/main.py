@@ -26,12 +26,14 @@ przygotuje Pan skrypt, którego zadaniem będzie odtworzenie wybranych
 """
 import sys
 import time
+import winsound
 import pandas as pd
 from PyQt5 import QtCore, QtGui, QtWidgets, QtMultimedia, QtTest
 from PyQt5.uic import loadUi
 import mainWindow
 import mgrTest
 
+#liczba reklam
 videoNum = 3
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):
@@ -39,31 +41,38 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui = mainWindow.Ui_MainWindow()
         self.ui.setupUi(self)
 
-        # PAGE 1
+        #
         self.ui.btnBegin.clicked.connect(self.relaxClose)
         self.ui.btnNext.clicked.connect(self.btnNextClicked)
         self.ui.btnNext_2.clicked.connect(self.btnNextClicked)
 
-        #set video player
+        #w
         self.player = QtMultimedia.QMediaPlayer()
         self.player.setVideoOutput(self.ui.videoPlayer)
+        
         def videoStateChanged(state):
             if state == QtMultimedia.QMediaPlayer.PlayingState:
                 print("started")
             elif state == QtMultimedia.QMediaPlayer.StoppedState:
                 print("finished")
                 self.emotion()
+                
         self.player.stateChanged.connect(videoStateChanged)
         
         self.musicPlayer = QtMultimedia.QMediaPlayer()
         self.musicPlayer.setMedia(QtMultimedia.QMediaContent(QtCore.QUrl.fromLocalFile("music/Sleep_Mountain.mp3")))
+        
         def musicStateChangedClose(state):
             if state == QtMultimedia.QMediaPlayer.PlayingState:
                 print("started")
             elif state == QtMultimedia.QMediaPlayer.StoppedState:
                 print("finished")
                 self.musicPlayer.stateChanged.connect(musicStateChangedOpen)
+                duration = 100  # milliseconds
+                freq = 440  # Hz
+                winsound.Beep(freq, duration)
                 self.relaxOpen()
+                
         def musicStateChangedOpen(state):
             if state == QtMultimedia.QMediaPlayer.PlayingState:
                 print("started")
@@ -71,6 +80,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 print("finished")
                 self.ui.stackedWidget.setCurrentWidget(self.ui.page_3)
                 self.playVideo()
+                
         self.musicPlayer.stateChanged.connect(musicStateChangedClose)
         self.musicPlayer2 = QtMultimedia.QMediaPlayer()
         self.musicPlayer2.setMedia(QtMultimedia.QMediaContent(QtCore.QUrl.fromLocalFile("music/Sleep_Mountain.mp3")))
@@ -87,7 +97,6 @@ class MainWindow(QtWidgets.QMainWindow):
         print("closeTUUUUUUUUU")
         self.ui.stackedWidget.setCurrentWidget(self.ui.page_1)
         self.musicPlayer.play()
-        #QtTest.QTest.qWait(60000)
         
         
     def relaxOpen(self):
@@ -114,7 +123,7 @@ class MainWindow(QtWidgets.QMainWindow):
         else:
             if self.currentVideo != videoNum:
                 
-                self.checkAnswers()                       
+                self.getAnswers()                       
                 self.currentVideo = self.currentVideo + 1
                 self.ui.labelVideoNum_1.setText("Film "+str(self.currentVideo))
                 self.ui.labelVideoNum_2.setText("Film "+str(self.currentVideo))
@@ -124,7 +133,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.playVideo()
             else:
                 self.saveData()
-                self.checkAnswers()
+                self.getAnswers()
                 self.sumAnswers()
                 print(self.answers)
                 self.ui.stackedWidget.setCurrentWidget(self.ui.page_6)
@@ -133,7 +142,7 @@ class MainWindow(QtWidgets.QMainWindow):
         print("Zapis danych")
         self.data.to_csv("answers.csv")
     
-    def checkAnswers(self):
+    def getAnswers(self):
         for radio in self.ui.page_5.findChildren(QtWidgets.QRadioButton):
             if radio.isChecked():
                 self.answers = self.answers.append({"videoID":self.currentVideo,"questionID":radio.objectName()[-2],"answer":radio.objectName()[-2:]}, ignore_index=True)
