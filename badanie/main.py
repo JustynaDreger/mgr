@@ -83,7 +83,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 
         self.musicPlayer.stateChanged.connect(musicStateChangedClose)
         self.musicPlayer2 = QtMultimedia.QMediaPlayer()
-        self.musicPlayer2.setMedia(QtMultimedia.QMediaContent(QtCore.QUrl.fromLocalFile("music/Sleep_Mountain.mp3")))
+        self.musicPlayer2.setMedia(QtMultimedia.QMediaContent(QtCore.QUrl.fromLocalFile("music/puung.mp3")))
         self.musicPlayer2.stateChanged.connect(musicStateChangedOpen)
         
         self.currentVideo = 1

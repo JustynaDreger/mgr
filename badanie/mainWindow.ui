@@ -905,6 +905,24 @@
         <string>zaskoczenie</string>
        </property>
       </widget>
+      <widget class="QCheckBox" name="checkBoxExcited">
+       <property name="geometry">
+        <rect>
+         <x>460</x>
+         <y>20</y>
+         <width>171</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>20</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>podniecenie</string>
+       </property>
+      </widget>
      </widget>
      <widget class="QPushButton" name="btnNext">
       <property name="geometry">

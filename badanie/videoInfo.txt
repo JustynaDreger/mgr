@@ -1,0 +1,11 @@
+videoID,duration[s],emotion
+1,20,Happy
+2,35,Excited
+3,75.6,Sad Happy
+4,28,Sad
+5,31,Excited
+6,15,Happy
+7,70.8,Sad
+8,60,Sad
+9,
+10,
