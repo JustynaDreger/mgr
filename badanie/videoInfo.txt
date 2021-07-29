@@ -7,5 +7,5 @@ videoID,duration[s],emotion
 6,15,Happy
 7,70.8,Sad
 8,60,Sad
-9,
-10,
+9,210.6,Sad Fear
+10,34,Happy
