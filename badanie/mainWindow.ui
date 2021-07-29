@@ -27,7 +27,7 @@
      <bool>true</bool>
     </property>
     <property name="currentIndex">
-     <number>4</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page_0">
      <widget class="QLabel" name="labelTitel">
@@ -940,7 +940,7 @@
      <widget class="QLabel" name="label_6">
       <property name="geometry">
        <rect>
-        <x>460</x>
+        <x>510</x>
         <y>150</y>
         <width>341</width>
         <height>21</height>
@@ -976,7 +976,7 @@
        <rect>
         <x>10</x>
         <y>140</y>
-        <width>901</width>
+        <width>971</width>
         <height>91</height>
        </rect>
       </property>
@@ -991,8 +991,8 @@
         <rect>
          <x>10</x>
          <y>30</y>
-         <width>161</width>
-         <height>20</height>
+         <width>221</width>
+         <height>31</height>
         </rect>
        </property>
        <property name="font">
@@ -1009,8 +1009,8 @@
         <rect>
          <x>240</x>
          <y>30</y>
-         <width>161</width>
-         <height>20</height>
+         <width>221</width>
+         <height>31</height>
         </rect>
        </property>
        <property name="font">
@@ -1027,8 +1027,8 @@
         <rect>
          <x>470</x>
          <y>30</y>
-         <width>161</width>
-         <height>20</height>
+         <width>251</width>
+         <height>31</height>
         </rect>
        </property>
        <property name="font">
@@ -1045,8 +1045,8 @@
         <rect>
          <x>720</x>
          <y>30</y>
-         <width>161</width>
-         <height>20</height>
+         <width>211</width>
+         <height>31</height>
         </rect>
        </property>
        <property name="font">
@@ -1102,7 +1102,7 @@
        <rect>
         <x>10</x>
         <y>100</y>
-        <width>451</width>
+        <width>901</width>
         <height>51</height>
        </rect>
       </property>
@@ -1140,7 +1140,7 @@
        <rect>
         <x>10</x>
         <y>270</y>
-        <width>451</width>
+        <width>901</width>
         <height>51</height>
        </rect>
       </property>
@@ -1159,7 +1159,7 @@
        <rect>
         <x>10</x>
         <y>310</y>
-        <width>901</width>
+        <width>951</width>
         <height>91</height>
        </rect>
       </property>
@@ -1174,8 +1174,8 @@
         <rect>
          <x>10</x>
          <y>30</y>
-         <width>161</width>
-         <height>20</height>
+         <width>231</width>
+         <height>31</height>
         </rect>
        </property>
        <property name="font">
@@ -1192,8 +1192,8 @@
         <rect>
          <x>240</x>
          <y>30</y>
-         <width>161</width>
-         <height>20</height>
+         <width>221</width>
+         <height>31</height>
         </rect>
        </property>
        <property name="font">
@@ -1210,8 +1210,8 @@
         <rect>
          <x>470</x>
          <y>30</y>
-         <width>161</width>
-         <height>20</height>
+         <width>251</width>
+         <height>31</height>
         </rect>
        </property>
        <property name="font">
@@ -1228,8 +1228,8 @@
         <rect>
          <x>720</x>
          <y>30</y>
-         <width>161</width>
-         <height>20</height>
+         <width>201</width>
+         <height>31</height>
         </rect>
        </property>
        <property name="font">
@@ -1266,7 +1266,7 @@
        <rect>
         <x>10</x>
         <y>440</y>
-        <width>451</width>
+        <width>901</width>
         <height>51</height>
        </rect>
       </property>
@@ -1285,7 +1285,7 @@
        <rect>
         <x>10</x>
         <y>480</y>
-        <width>901</width>
+        <width>951</width>
         <height>91</height>
        </rect>
       </property>
@@ -1300,8 +1300,8 @@
         <rect>
          <x>10</x>
          <y>30</y>
-         <width>161</width>
-         <height>20</height>
+         <width>231</width>
+         <height>31</height>
         </rect>
        </property>
        <property name="font">
@@ -1318,8 +1318,8 @@
         <rect>
          <x>240</x>
          <y>30</y>
-         <width>161</width>
-         <height>20</height>
+         <width>231</width>
+         <height>31</height>
         </rect>
        </property>
        <property name="font">
@@ -1336,8 +1336,8 @@
         <rect>
          <x>470</x>
          <y>30</y>
-         <width>161</width>
-         <height>20</height>
+         <width>251</width>
+         <height>31</height>
         </rect>
        </property>
        <property name="font">
@@ -1354,8 +1354,8 @@
         <rect>
          <x>720</x>
          <y>30</y>
-         <width>161</width>
-         <height>20</height>
+         <width>211</width>
+         <height>31</height>
         </rect>
        </property>
        <property name="font">
@@ -1392,7 +1392,7 @@
      <widget class="QLabel" name="label_Points">
       <property name="geometry">
        <rect>
-        <x>410</x>
+        <x>450</x>
         <y>280</y>
         <width>201</width>
         <height>61</height>
@@ -2022,7 +2022,7 @@
      </font>
     </property>
     <property name="text">
-     <string>0/10</string>
+     <string>1/10</string>
     </property>
    </widget>
   </widget>
