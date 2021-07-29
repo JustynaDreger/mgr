@@ -6,6 +6,6 @@ videoID,duration[s],emotion
 5,31,Excited
 6,15,Happy
 7,70.8,Sad
-8,60,Sad
-9,210.6,Sad Fear
+8,60,Sad Suprised
+9,210.6,Sad Fear Angry
 10,34,Happy

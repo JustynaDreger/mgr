@@ -17,10 +17,10 @@
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>20</x>
       <y>10</y>
-      <width>941</width>
-      <height>731</height>
+      <width>1001</width>
+      <height>751</height>
      </rect>
     </property>
     <property name="autoFillBackground">
@@ -33,10 +33,10 @@
      <widget class="QLabel" name="labelTitel">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>0</x>
         <y>10</y>
-        <width>921</width>
-        <height>541</height>
+        <width>1011</width>
+        <height>611</height>
        </rect>
       </property>
       <property name="font">
@@ -48,14 +48,14 @@
        <bool>true</bool>
       </property>
       <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Praca magisterska&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;Wykorzystanie sygnałów EEG w badaniu emocji&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;odbiorców przekazu reklamowego prezentowanego w formie video&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Eksperyment badawczy&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;Poniższy eksperyment badawczy jest przeprowadzany w ramach pracy dyplomowej,&lt;/p&gt;&lt;p&gt;a wszystkie zebrane w trakcie niego dane zostaną wykorzystane wyłącznie w celach badawczych.&lt;/p&gt;&lt;p&gt;Celem eksperymentu jest weryfikacja, jakie emocje budzą w potencjalnych klientach reklamy video.&lt;/p&gt;&lt;p&gt;Zadaniem uczestnika badania jest wskazanie, jakie emocje wzbudziła według niego dana reklama &lt;/p&gt;&lt;p&gt;oraz odpowiedź na pytania dotyczące obejrzanego materiału. &lt;span style=&quot; font-weight:700;&quot;&gt;Filmy należy oglądać uważnie!&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Po kliknięciu przycisku &amp;quot;Rozpocznij&amp;quot; nastąpi etap kalibracji. Prosze się zrelaksować :)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Praca magisterska&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;Wykorzystanie sygnałów EEG w badaniu emocji&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;odbiorców przekazu reklamowego prezentowanego w formie video&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Eksperyment badawczy&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;Poniższy eksperyment badawczy jest przeprowadzany w ramach pracy dyplomowej,&lt;/p&gt;&lt;p&gt;a wszystkie zebrane w trakcie niego dane zostaną wykorzystane wyłącznie w celach badawczych.&lt;/p&gt;&lt;p&gt;Celem eksperymentu jest weryfikacja, jakie emocje budzą w potencjalnych klientach reklamy video.&lt;/p&gt;&lt;p&gt;Zadaniem uczestnika badania jest wskazanie, jakie emocje wzbudziła według niego dana reklama &lt;/p&gt;&lt;p&gt;oraz odpowiedź na pytania dotyczące obejrzanego materiału. &lt;span style=&quot; font-weight:700;&quot;&gt;Filmy należy oglądać uważnie!&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Po kliknięciu przycisku &amp;quot;Rozpocznij&amp;quot; nastąpi etap kalibracji. Należy zamknąć oczy i zrelaksować się. &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;W momencie zmiany muzyki należy otworzyć oczy. &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Prosze się zrelaksować :)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
      <widget class="QPushButton" name="btnBegin">
       <property name="geometry">
        <rect>
-        <x>300</x>
-        <y>570</y>
+        <x>290</x>
+        <y>630</y>
         <width>361</width>
         <height>111</height>
        </rect>
@@ -655,9 +655,9 @@
      <widget class="QLabel" name="label">
       <property name="geometry">
        <rect>
-        <x>210</x>
-        <y>310</y>
-        <width>461</width>
+        <x>130</x>
+        <y>260</y>
+        <width>721</width>
         <height>141</height>
        </rect>
       </property>
@@ -668,7 +668,7 @@
        </font>
       </property>
       <property name="text">
-       <string>Relaks z zamkniętymi oczami</string>
+       <string>Proszę się zrelaksować i zamknąć oczy</string>
       </property>
      </widget>
     </widget>
@@ -676,9 +676,9 @@
      <widget class="QLabel" name="label_2">
       <property name="geometry">
        <rect>
-        <x>210</x>
-        <y>310</y>
-        <width>431</width>
+        <x>130</x>
+        <y>260</y>
+        <width>701</width>
         <height>131</height>
        </rect>
       </property>
@@ -689,7 +689,7 @@
        </font>
       </property>
       <property name="text">
-       <string>Relaks z otwartymi oczami</string>
+       <string>Proszę się zrelaksować i mieć oczy otwarte.</string>
       </property>
      </widget>
     </widget>
@@ -718,7 +718,7 @@
        <rect>
         <x>10</x>
         <y>60</y>
-        <width>911</width>
+        <width>961</width>
         <height>651</height>
        </rect>
       </property>
@@ -771,7 +771,7 @@
        <rect>
         <x>10</x>
         <y>130</y>
-        <width>451</width>
+        <width>491</width>
         <height>51</height>
        </rect>
       </property>
@@ -923,6 +923,24 @@
         <string>podniecenie</string>
        </property>
       </widget>
+      <widget class="QCheckBox" name="checkBoxCalm">
+       <property name="geometry">
+        <rect>
+         <x>460</x>
+         <y>70</y>
+         <width>231</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>20</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>spokój/obojętne</string>
+       </property>
+      </widget>
      </widget>
      <widget class="QPushButton" name="btnNext">
       <property name="geometry">
@@ -974,9 +992,9 @@
      <widget class="QGroupBox" name="groupBox">
       <property name="geometry">
        <rect>
-        <x>10</x>
+        <x>0</x>
         <y>140</y>
-        <width>971</width>
+        <width>1001</width>
         <height>91</height>
        </rect>
       </property>
@@ -989,7 +1007,7 @@
       <widget class="QRadioButton" name="radioButtonQ1A">
        <property name="geometry">
         <rect>
-         <x>10</x>
+         <x>0</x>
          <y>30</y>
          <width>221</width>
          <height>31</height>
@@ -1007,9 +1025,9 @@
       <widget class="QRadioButton" name="radioButtonQ1B">
        <property name="geometry">
         <rect>
-         <x>240</x>
+         <x>230</x>
          <y>30</y>
-         <width>221</width>
+         <width>231</width>
          <height>31</height>
         </rect>
        </property>
@@ -1025,9 +1043,9 @@
       <widget class="QRadioButton" name="radioButtonQ1C">
        <property name="geometry">
         <rect>
-         <x>470</x>
+         <x>480</x>
          <y>30</y>
-         <width>251</width>
+         <width>261</width>
          <height>31</height>
         </rect>
        </property>
@@ -1043,9 +1061,9 @@
       <widget class="QRadioButton" name="radioButtonQ1D">
        <property name="geometry">
         <rect>
-         <x>720</x>
+         <x>750</x>
          <y>30</y>
-         <width>211</width>
+         <width>251</width>
          <height>31</height>
         </rect>
        </property>
@@ -1151,15 +1169,15 @@
        </font>
       </property>
       <property name="text">
-       <string>Drugie pytanie odnosnie reklamy</string>
+       <string>Drugie pytanie odnośnie reklamy</string>
       </property>
      </widget>
      <widget class="QGroupBox" name="groupBoxEmotion1_3">
       <property name="geometry">
        <rect>
-        <x>10</x>
+        <x>0</x>
         <y>310</y>
-        <width>951</width>
+        <width>1001</width>
         <height>91</height>
        </rect>
       </property>
@@ -1172,7 +1190,7 @@
       <widget class="QRadioButton" name="radioButtonQ2A">
        <property name="geometry">
         <rect>
-         <x>10</x>
+         <x>0</x>
          <y>30</y>
          <width>231</width>
          <height>31</height>
@@ -1190,9 +1208,9 @@
       <widget class="QRadioButton" name="radioButtonQ2B">
        <property name="geometry">
         <rect>
-         <x>240</x>
+         <x>230</x>
          <y>30</y>
-         <width>221</width>
+         <width>241</width>
          <height>31</height>
         </rect>
        </property>
@@ -1208,9 +1226,9 @@
       <widget class="QRadioButton" name="radioButtonQ2C">
        <property name="geometry">
         <rect>
-         <x>470</x>
+         <x>480</x>
          <y>30</y>
-         <width>251</width>
+         <width>261</width>
          <height>31</height>
         </rect>
        </property>
@@ -1226,9 +1244,9 @@
       <widget class="QRadioButton" name="radioButtonQ2D">
        <property name="geometry">
         <rect>
-         <x>720</x>
+         <x>750</x>
          <y>30</y>
-         <width>201</width>
+         <width>251</width>
          <height>31</height>
         </rect>
        </property>
@@ -1283,9 +1301,9 @@
      <widget class="QGroupBox" name="groupBoxEmotion1_4">
       <property name="geometry">
        <rect>
-        <x>10</x>
+        <x>0</x>
         <y>480</y>
-        <width>951</width>
+        <width>1001</width>
         <height>91</height>
        </rect>
       </property>
@@ -1298,7 +1316,7 @@
       <widget class="QRadioButton" name="radioButtonQ3A">
        <property name="geometry">
         <rect>
-         <x>10</x>
+         <x>0</x>
          <y>30</y>
          <width>231</width>
          <height>31</height>
@@ -1316,9 +1334,9 @@
       <widget class="QRadioButton" name="radioButtonQ3B">
        <property name="geometry">
         <rect>
-         <x>240</x>
+         <x>230</x>
          <y>30</y>
-         <width>231</width>
+         <width>241</width>
          <height>31</height>
         </rect>
        </property>
@@ -1334,9 +1352,9 @@
       <widget class="QRadioButton" name="radioButtonQ3C">
        <property name="geometry">
         <rect>
-         <x>470</x>
+         <x>480</x>
          <y>30</y>
-         <width>251</width>
+         <width>261</width>
          <height>31</height>
         </rect>
        </property>
@@ -1352,9 +1370,9 @@
       <widget class="QRadioButton" name="radioButtonQ3D">
        <property name="geometry">
         <rect>
-         <x>720</x>
+         <x>750</x>
          <y>30</y>
-         <width>211</width>
+         <width>251</width>
          <height>31</height>
         </rect>
        </property>
@@ -2010,7 +2028,7 @@
     <property name="geometry">
      <rect>
       <x>950</x>
-      <y>745</y>
+      <y>750</y>
       <width>49</width>
       <height>21</height>
      </rect>

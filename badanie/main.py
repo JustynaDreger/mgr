@@ -6,24 +6,7 @@ Created on Tue Jul 20 20:38:23 2021
 
 pyuic5 -x mgrTest.ui -o mgrTest.py
 """
-"""
-przygotuje Pan skrypt, którego zadaniem będzie odtworzenie wybranych
- filmów reklamowych. Między filmami powinien być ekran, z kilkoma etykietami
- emocji, spośród których uczestnik powinien wskazać te, które jego zdaniem wywołał dany film.
- Po nim powinien następować 2-gi ekran w którym zadaje Pani 3 pytania testowy na temat jakiś 
- szczegółów, które pojawiły się na filmie. Odpowiedzi poprawne powinny być zliczane, 
- a na zakończenie całego skryptu uczestnikowi powinna wyświetlać się informacja z jego wynikiem. 
- W celach motywacyjnych będzie Pani musiała przygotować sobie do badania np. zestaw cukierków i 
- wyraźnie na początku poinformować uczestnika, że musi  dokładnie oglądać filmy, 
- żeby odpowiedzieć na jak największą liczbę pytać i tym samym otrzymać nagrodę. 
- Oczywiście trzeba też ustalić, że np. za wszystkie bezbłędne odpowiedzi są 3 cukierki, 
- za dwie błędne 2, za 4 błędne 1, a za więcej - brak nagrody. 
- Przed rozpoczęciem 1-szego filmu potrzebujemy jeszcze zarejestrować sygnał w trakcie relaksu uczestnika, 
- więc w ciągu pierwszej minuty na ekranie musi być jakaś informacja o relaksie z zamkniętymi oczami, 
- w ciągu kolejnej minuty relaks z otwartymi oczami (przez całe dwie minuty powinna być jakaś relaksująca muzyka). 
- W trakcie każdej zmiany ekranu będzie Pani przesyłała informacje o zdarzeniu do systemu rejestrującego sygnał EEG,
- ale o tym napiszę Pani później jak przygotuje Pani skrypt.
-"""
+
 import sys
 import time
 import winsound
@@ -46,7 +29,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.btnNext.clicked.connect(self.btnNextClicked)
         self.ui.btnNext_2.clicked.connect(self.btnNextClicked)
 
-        #w
+        #
         self.player = QtMultimedia.QMediaPlayer()
         self.player.setVideoOutput(self.ui.videoPlayer)
         
@@ -64,9 +47,10 @@ class MainWindow(QtWidgets.QMainWindow):
         
         def musicStateChangedClose(state):
             if state == QtMultimedia.QMediaPlayer.PlayingState:
-                print("started")
+                #print("started")
+                pass
             elif state == QtMultimedia.QMediaPlayer.StoppedState:
-                print("finished")
+               # print("finished")
                 self.musicPlayer.stateChanged.connect(musicStateChangedOpen)
                 duration = 100  # milliseconds
                 freq = 440  # Hz
@@ -75,9 +59,10 @@ class MainWindow(QtWidgets.QMainWindow):
                 
         def musicStateChangedOpen(state):
             if state == QtMultimedia.QMediaPlayer.PlayingState:
-                print("started")
+                #print("started")
+                pass
             elif state == QtMultimedia.QMediaPlayer.StoppedState:
-                print("finished")
+                #print("finished")
                 self.ui.stackedWidget.setCurrentWidget(self.ui.page_3)
                 self.playVideo()
                 
@@ -96,13 +81,11 @@ class MainWindow(QtWidgets.QMainWindow):
         self.show()
     
     def relaxClose(self):
-        print("closeTUUUUUUUUU")
         self.ui.stackedWidget.setCurrentWidget(self.ui.page_1)
         self.musicPlayer.play()
         
         
     def relaxOpen(self):
-        print("openTUUUU")
         self.ui.stackedWidget.setCurrentWidget(self.ui.page_2)
         self.musicPlayer2.play()
         
@@ -137,8 +120,9 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.saveData()
                 self.getAnswers()
                 self.sumAnswers()
-                print(self.answers)
+                #print(self.answers)
                 self.ui.stackedWidget.setCurrentWidget(self.ui.page_6)
+                
     def setQuestions(self):
         question = self.questions[self.questions["videoID"]==self.currentVideo]
         self.ui.label_q1.setText(question["question"].iloc[0])
@@ -167,11 +151,11 @@ class MainWindow(QtWidgets.QMainWindow):
         self.answers.to_csv("answers.csv")#zapis odpowiedzi do reklam
     
     def getAnswers(self):
-        print("getANsw")
+       
         for radio in self.ui.page_5.findChildren(QtWidgets.QRadioButton):
             if radio.isChecked():
                 self.answers = self.answers.append({"videoID":self.currentVideo,"questionID":radio.objectName()[-2],"answer":radio.text()}, ignore_index=True)
-                print(self.answers)
+                #print(self.answers)
                 radio.setAutoExclusive(False)
                 radio.setChecked(False)
                 radio.setAutoExclusive(True)
