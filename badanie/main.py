@@ -14,7 +14,6 @@ import pandas as pd
 from PyQt5 import QtCore, QtGui, QtWidgets, QtMultimedia, QtTest
 from PyQt5.uic import loadUi
 import mainWindow
-import mgrTest
 
 #liczba reklam
 videoNum = 10
@@ -35,9 +34,10 @@ class MainWindow(QtWidgets.QMainWindow):
         
         def videoStateChanged(state):
             if state == QtMultimedia.QMediaPlayer.PlayingState:
-                print("started")
+                #print("started")
+                pass
             elif state == QtMultimedia.QMediaPlayer.StoppedState:
-                print("finished")
+                #print("finished")
                 self.emotion()
                 
         self.player.stateChanged.connect(videoStateChanged)
