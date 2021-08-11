@@ -6,11 +6,12 @@ Created on Tue Jul 20 20:38:23 2021
 
 pyuic5 -x mgrTest.ui -o mgrTest.py
 """
-
+import os
 import sys
 import time
 import winsound
 import pandas as pd
+from datetime import datetime
 from PyQt5 import QtCore, QtGui, QtWidgets, QtMultimedia, QtTest
 from PyQt5.uic import loadUi
 import mainWindow
@@ -63,6 +64,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 pass
             elif state == QtMultimedia.QMediaPlayer.StoppedState:
                 #print("finished")
+                self.synchroEEG("reklama"+str(self.currentVideo))
                 self.ui.stackedWidget.setCurrentWidget(self.ui.page_3)
                 self.playVideo()
                 
@@ -81,11 +83,13 @@ class MainWindow(QtWidgets.QMainWindow):
         self.show()
     
     def relaxClose(self):
+        self.synchroEEG("kalibracja_zamkniete")
         self.ui.stackedWidget.setCurrentWidget(self.ui.page_1)
         self.musicPlayer.play()
         
         
     def relaxOpen(self):
+        self.synchroEEG("kalibracja_otwarte")
         self.ui.stackedWidget.setCurrentWidget(self.ui.page_2)
         self.musicPlayer2.play()
         
@@ -95,6 +99,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.player.play()
     
     def emotion(self):
+        self.synchroEEG("emocje"+str(self.currentVideo))
         self.ui.stackedWidget.setCurrentWidget(self.ui.page_4)
 
     def btnNextClicked(self):
@@ -104,6 +109,7 @@ class MainWindow(QtWidgets.QMainWindow):
                     self.data = self.data.append({"videoID":self.currentVideo,"answer":box.objectName()[8:]}, ignore_index=True)
                     box.setChecked(False)
             self.setQuestions()
+            self.synchroEEG("odpowiedzi"+str(self.currentVideo))
             self.ui.stackedWidget.setCurrentWidget(self.ui.page_5)
             
         else:
@@ -114,6 +120,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.ui.labelVideoNum_2.setText("Film "+str(self.currentVideo))
                 self.ui.labelVideoNum_3.setText("Film "+str(self.currentVideo))
                 self.ui.label_num.setText(str(self.currentVideo)+"/"+str(videoNum))
+                self.synchroEEG("reklama"+str(self.currentVideo))
                 self.ui.stackedWidget.setCurrentWidget(self.ui.page_3)
                 self.playVideo()
             else:
@@ -121,6 +128,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.getAnswers()
                 self.sumAnswers()
                 #print(self.answers)
+                self.synchroEEG("koniec")
                 self.ui.stackedWidget.setCurrentWidget(self.ui.page_6)
                 
     def setQuestions(self):
@@ -147,8 +155,10 @@ class MainWindow(QtWidgets.QMainWindow):
         
     def saveData(self):
         print("Zapis danych")
-        self.data.to_csv("data.csv")#zapis odpowiedzi o emocje
-        self.answers.to_csv("answers.csv")#zapis odpowiedzi do reklam
+        now = datetime.now()
+        dt_string = now.strftime("%d_%m_%Y_%H_%M_%S")
+        self.data.to_csv("data"+dt_string+".csv")#zapis odpowiedzi o emocje
+        self.answers.to_csv("answers"+dt_string+".csv")#zapis odpowiedzi do reklam
     
     def getAnswers(self):
        
@@ -167,6 +177,24 @@ class MainWindow(QtWidgets.QMainWindow):
                 correct = correct + 1
         self.ui.label_Points.setText(str(correct)+"/"+str(videoNum*3))
     
+    def synchroEEG(self, eventType):
+        print(eventType)
+        #czas - rok (4 cyfry), miesiąc, dzień, godzina, minuta, sekunda (po 2 cyfry) i milisekunda (3 cyfry)
+        now =datetime.now().isoformat(sep=' ', timespec='milliseconds').replace("-","").replace(":","").replace(" ","").replace(".","")
+        if eventType=="koniec":
+            frame = now+",flag,none,end scenario,aplikacja,MainWindow,stymulacja.txt,none,none,none,none,none,none,none,none,none,none,none"
+        else:
+            frame = str(now)+",none,none,"+eventType+",aplikacja,MainWindow,stymulacja.txt,none,none,none,none,none,none,none,none,none,none,none"
+
+        while(True):
+            if not (os.path.exists("stymulacja.txt")):
+                #print("nie ma")
+                with open("stymulacja.txt", "w") as file:
+                    file.write(str(frame).replace("[]", ""))
+                break
+            #else:
+                #print("jest")
+        
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     window = MainWindow()
