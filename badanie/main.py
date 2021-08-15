@@ -182,7 +182,7 @@ class MainWindow(QtWidgets.QMainWindow):
         #czas - rok (4 cyfry), miesiąc, dzień, godzina, minuta, sekunda (po 2 cyfry) i milisekunda (3 cyfry)
         now =datetime.now().isoformat(sep=' ', timespec='milliseconds').replace("-","").replace(":","").replace(" ","").replace(".","")
         if eventType=="koniec":
-            frame = now+",flag,none,end scenario,aplikacja,MainWindow,stymulacja.txt,none,none,none,none,none,none,none,none,none,none,none"
+            frame = str(now)+",flag,none,end scenario,aplikacja,MainWindow,stymulacja.txt,none,none,none,none,none,none,none,none,none,none,none"
         else:
             frame = str(now)+",none,none,"+eventType+",aplikacja,MainWindow,stymulacja.txt,none,none,none,none,none,none,none,none,none,none,none"
 

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1036</width>
+    <width>1131</width>
     <height>814</height>
    </rect>
   </property>
@@ -19,7 +19,7 @@
      <rect>
       <x>20</x>
       <y>10</y>
-      <width>1001</width>
+      <width>1081</width>
       <height>751</height>
      </rect>
     </property>
@@ -35,7 +35,7 @@
        <rect>
         <x>0</x>
         <y>10</y>
-        <width>1011</width>
+        <width>1091</width>
         <height>611</height>
        </rect>
       </property>
@@ -48,13 +48,13 @@
        <bool>true</bool>
       </property>
       <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Praca magisterska&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;Wykorzystanie sygnałów EEG w badaniu emocji&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;odbiorców przekazu reklamowego prezentowanego w formie video&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Eksperyment badawczy&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;Poniższy eksperyment badawczy jest przeprowadzany w ramach pracy dyplomowej,&lt;/p&gt;&lt;p&gt;a wszystkie zebrane w trakcie niego dane zostaną wykorzystane wyłącznie w celach badawczych.&lt;/p&gt;&lt;p&gt;Celem eksperymentu jest weryfikacja, jakie emocje budzą w potencjalnych klientach reklamy video.&lt;/p&gt;&lt;p&gt;Zadaniem uczestnika badania jest wskazanie, jakie emocje wzbudziła według niego dana reklama &lt;/p&gt;&lt;p&gt;oraz odpowiedź na pytania dotyczące obejrzanego materiału. &lt;span style=&quot; font-weight:700;&quot;&gt;Filmy należy oglądać uważnie!&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Po kliknięciu przycisku &amp;quot;Rozpocznij&amp;quot; nastąpi etap kalibracji. Należy zamknąć oczy i zrelaksować się. &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;W momencie zmiany muzyki należy otworzyć oczy. &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Prosze się zrelaksować :)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Praca magisterska&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;Wykorzystanie sygnałów EEG w badaniu emocji&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;odbiorców przekazu reklamowego prezentowanego w formie video&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Eksperyment badawczy&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;Poniższy eksperyment badawczy jest przeprowadzany w ramach pracy dyplomowej,&lt;/p&gt;&lt;p&gt;a wszystkie zebrane w trakcie niego dane zostaną wykorzystane wyłącznie w celach badawczych.&lt;/p&gt;&lt;p&gt;Celem eksperymentu jest weryfikacja, jakie emocje budzą w potencjalnych klientach reklamy video.&lt;/p&gt;&lt;p&gt;Zadaniem uczestnika badania jest wskazanie, jakie emocje wzbudziła według niego dana reklama &lt;/p&gt;&lt;p&gt;oraz odpowiedź na pytania dotyczące obejrzanego materiału. &lt;span style=&quot; font-weight:700;&quot;&gt;Filmy należy oglądać uważnie!&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;Po kliknięciu przycisku &amp;quot;Rozpocznij&amp;quot; nastąpi etap kalibracji. Należy zamknąć oczy i zrelaksować się. &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700;&quot;&gt;W momencie zmiany muzyki należy otworzyć oczy. Prosze się zrelaksować :)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
      <widget class="QPushButton" name="btnBegin">
       <property name="geometry">
        <rect>
-        <x>290</x>
+        <x>390</x>
         <y>630</y>
         <width>361</width>
         <height>111</height>
@@ -655,8 +655,8 @@
      <widget class="QLabel" name="label">
       <property name="geometry">
        <rect>
-        <x>130</x>
-        <y>260</y>
+        <x>240</x>
+        <y>270</y>
         <width>721</width>
         <height>141</height>
        </rect>
@@ -676,8 +676,8 @@
      <widget class="QLabel" name="label_2">
       <property name="geometry">
        <rect>
-        <x>130</x>
-        <y>260</y>
+        <x>210</x>
+        <y>280</y>
         <width>701</width>
         <height>131</height>
        </rect>
@@ -718,7 +718,7 @@
        <rect>
         <x>10</x>
         <y>60</y>
-        <width>961</width>
+        <width>1061</width>
         <height>651</height>
        </rect>
       </property>
@@ -790,7 +790,7 @@
        <rect>
         <x>10</x>
         <y>190</y>
-        <width>901</width>
+        <width>1051</width>
         <height>131</height>
        </rect>
       </property>
@@ -945,11 +945,17 @@
      <widget class="QPushButton" name="btnNext">
       <property name="geometry">
        <rect>
-        <x>790</x>
-        <y>650</y>
+        <x>920</x>
+        <y>660</y>
         <width>141</width>
         <height>71</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>16</pointsize>
+        <bold>true</bold>
+       </font>
       </property>
       <property name="text">
        <string>Dalej</string>
@@ -960,7 +966,7 @@
        <rect>
         <x>510</x>
         <y>150</y>
-        <width>341</width>
+        <width>511</width>
         <height>21</height>
        </rect>
       </property>
@@ -979,11 +985,17 @@
      <widget class="QPushButton" name="btnNext_2">
       <property name="geometry">
        <rect>
-        <x>790</x>
-        <y>650</y>
+        <x>920</x>
+        <y>660</y>
         <width>141</width>
         <height>71</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>16</pointsize>
+        <bold>true</bold>
+       </font>
       </property>
       <property name="text">
        <string>Dalej</string>
@@ -994,7 +1006,7 @@
        <rect>
         <x>0</x>
         <y>140</y>
-        <width>1001</width>
+        <width>1061</width>
         <height>91</height>
        </rect>
       </property>
@@ -1009,13 +1021,13 @@
         <rect>
          <x>0</x>
          <y>30</y>
-         <width>221</width>
+         <width>231</width>
          <height>31</height>
         </rect>
        </property>
        <property name="font">
         <font>
-         <pointsize>18</pointsize>
+         <pointsize>16</pointsize>
         </font>
        </property>
        <property name="text">
@@ -1025,15 +1037,15 @@
       <widget class="QRadioButton" name="radioButtonQ1B">
        <property name="geometry">
         <rect>
-         <x>230</x>
+         <x>240</x>
          <y>30</y>
-         <width>231</width>
+         <width>241</width>
          <height>31</height>
         </rect>
        </property>
        <property name="font">
         <font>
-         <pointsize>18</pointsize>
+         <pointsize>16</pointsize>
         </font>
        </property>
        <property name="text">
@@ -1043,15 +1055,15 @@
       <widget class="QRadioButton" name="radioButtonQ1C">
        <property name="geometry">
         <rect>
-         <x>480</x>
+         <x>490</x>
          <y>30</y>
-         <width>261</width>
+         <width>271</width>
          <height>31</height>
         </rect>
        </property>
        <property name="font">
         <font>
-         <pointsize>18</pointsize>
+         <pointsize>16</pointsize>
         </font>
        </property>
        <property name="text">
@@ -1061,15 +1073,15 @@
       <widget class="QRadioButton" name="radioButtonQ1D">
        <property name="geometry">
         <rect>
-         <x>750</x>
+         <x>770</x>
          <y>30</y>
-         <width>251</width>
+         <width>281</width>
          <height>31</height>
         </rect>
        </property>
        <property name="font">
         <font>
-         <pointsize>18</pointsize>
+         <pointsize>16</pointsize>
         </font>
        </property>
        <property name="text">
@@ -1177,7 +1189,7 @@
        <rect>
         <x>0</x>
         <y>310</y>
-        <width>1001</width>
+        <width>1061</width>
         <height>91</height>
        </rect>
       </property>
@@ -1198,7 +1210,7 @@
        </property>
        <property name="font">
         <font>
-         <pointsize>18</pointsize>
+         <pointsize>16</pointsize>
         </font>
        </property>
        <property name="text">
@@ -1208,7 +1220,7 @@
       <widget class="QRadioButton" name="radioButtonQ2B">
        <property name="geometry">
         <rect>
-         <x>230</x>
+         <x>240</x>
          <y>30</y>
          <width>241</width>
          <height>31</height>
@@ -1216,7 +1228,7 @@
        </property>
        <property name="font">
         <font>
-         <pointsize>18</pointsize>
+         <pointsize>16</pointsize>
         </font>
        </property>
        <property name="text">
@@ -1226,15 +1238,15 @@
       <widget class="QRadioButton" name="radioButtonQ2C">
        <property name="geometry">
         <rect>
-         <x>480</x>
+         <x>490</x>
          <y>30</y>
-         <width>261</width>
+         <width>271</width>
          <height>31</height>
         </rect>
        </property>
        <property name="font">
         <font>
-         <pointsize>18</pointsize>
+         <pointsize>16</pointsize>
         </font>
        </property>
        <property name="text">
@@ -1244,15 +1256,15 @@
       <widget class="QRadioButton" name="radioButtonQ2D">
        <property name="geometry">
         <rect>
-         <x>750</x>
+         <x>770</x>
          <y>30</y>
-         <width>251</width>
+         <width>281</width>
          <height>31</height>
         </rect>
        </property>
        <property name="font">
         <font>
-         <pointsize>18</pointsize>
+         <pointsize>16</pointsize>
         </font>
        </property>
        <property name="text">
@@ -1303,7 +1315,7 @@
        <rect>
         <x>0</x>
         <y>480</y>
-        <width>1001</width>
+        <width>1061</width>
         <height>91</height>
        </rect>
       </property>
@@ -1324,7 +1336,7 @@
        </property>
        <property name="font">
         <font>
-         <pointsize>18</pointsize>
+         <pointsize>16</pointsize>
         </font>
        </property>
        <property name="text">
@@ -1334,7 +1346,7 @@
       <widget class="QRadioButton" name="radioButtonQ3B">
        <property name="geometry">
         <rect>
-         <x>230</x>
+         <x>240</x>
          <y>30</y>
          <width>241</width>
          <height>31</height>
@@ -1342,7 +1354,7 @@
        </property>
        <property name="font">
         <font>
-         <pointsize>18</pointsize>
+         <pointsize>16</pointsize>
         </font>
        </property>
        <property name="text">
@@ -1352,15 +1364,15 @@
       <widget class="QRadioButton" name="radioButtonQ3C">
        <property name="geometry">
         <rect>
-         <x>480</x>
+         <x>490</x>
          <y>30</y>
-         <width>261</width>
+         <width>271</width>
          <height>31</height>
         </rect>
        </property>
        <property name="font">
         <font>
-         <pointsize>18</pointsize>
+         <pointsize>16</pointsize>
         </font>
        </property>
        <property name="text">
@@ -1370,15 +1382,15 @@
       <widget class="QRadioButton" name="radioButtonQ3D">
        <property name="geometry">
         <rect>
-         <x>750</x>
+         <x>770</x>
          <y>30</y>
-         <width>251</width>
+         <width>281</width>
          <height>31</height>
         </rect>
        </property>
        <property name="font">
         <font>
-         <pointsize>18</pointsize>
+         <pointsize>16</pointsize>
         </font>
        </property>
        <property name="text">
@@ -1391,7 +1403,7 @@
      <widget class="QLabel" name="label_8">
       <property name="geometry">
        <rect>
-        <x>230</x>
+        <x>310</x>
         <y>200</y>
         <width>501</width>
         <height>161</height>
@@ -1410,7 +1422,7 @@
      <widget class="QLabel" name="label_Points">
       <property name="geometry">
        <rect>
-        <x>450</x>
+        <x>530</x>
         <y>280</y>
         <width>201</width>
         <height>61</height>
@@ -2006,7 +2018,7 @@
      <widget class="QLabel" name="label_10">
       <property name="geometry">
        <rect>
-        <x>230</x>
+        <x>310</x>
         <y>360</y>
         <width>341</width>
         <height>101</height>
@@ -2027,7 +2039,7 @@
    <widget class="QLabel" name="label_num">
     <property name="geometry">
      <rect>
-      <x>950</x>
+      <x>1070</x>
       <y>750</y>
       <width>49</width>
       <height>21</height>
@@ -2049,7 +2061,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1036</width>
+     <width>1131</width>
      <height>22</height>
     </rect>
    </property>
