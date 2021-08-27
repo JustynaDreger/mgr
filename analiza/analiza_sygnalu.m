@@ -27,7 +27,9 @@ for i = 4:3:33
 end
 %przeanalizowac sygnal zgodnie z algorytmem
 %odszumianie
-plot(signalVideo{1}(1,:))
+plot(signalCalibrationOpen(1,:))
+figure(2)
+plot(detrend(signalCalibrationOpen(1,:),2))
 %filtracja pasmowa
 signalDelta = {};
 signalTheta = {};
