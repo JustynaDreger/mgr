@@ -27,13 +27,18 @@ for i = 4:3:33
 end
 %przeanalizowac sygnal zgodnie z algorytmem
 %odszumianie
-plot(signalCalibrationClose(1,:))
+plot(signalVideo{1}(1,:))
 %filtracja pasmowa
-signalDelta = filtr(signalCalibrationClose,0.5,4,500);
-signalTheta = filtr(signalCalibrationClose,4,8,500);
-signalAlpha = filtr(signalCalibrationClose,8,13,500);
-signalBeta = filtr(signalCalibrationClose,13,30,500);
-signalGamma = filtr(signalCalibrationClose,30,100,500);
-figure(2)
-plot(signalDelta(1,:))
+signalDelta = {};
+signalTheta = {};
+signalAlpha = {};
+signalBeta = {};
+signalGamma = {};
+for i = 1:max(size(signalVideo))
+    signalDelta{i} = filtr(signalVideo{i},0.5,4,500);
+    signalTheta{i} = filtr(signalVideo{i},4,8,500);
+    signalAlpha{i} = filtr(signalVideo{i},8,13,500);
+    signalBeta{i} = filtr(signalVideo{i},13,30,500);
+    signalGamma{i} = filtr(signalVideo{i},30,100,500);
+end
 %wyznaczenie wskaznikow
