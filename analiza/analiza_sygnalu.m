@@ -29,7 +29,7 @@ end
 %odszumianie
 plot(signalCalibrationOpen(1,:))
 figure(2)
-plot(detrend(signalCalibrationOpen(1,:),2))
+plot(signalCalibrationClose(1,:))
 %filtracja pasmowa
 signalDelta = {};
 signalTheta = {};
@@ -44,3 +44,27 @@ for i = 1:max(size(signalVideo))
     signalGamma{i} = filtr(signalVideo{i},30,100,500);
 end
 %wyznaczenie wskaznikow
+alphaPower = {};
+betaPower = {};
+gammaPower = {};
+deltaPower = {};
+thetaPower = {};
+for i = 1:max(size(signalVideo))
+    alphaPower{i} = bandpower(signalAlpha{i}');
+    betaPower{i} = bandpower(signalBeta{i}');
+    gammaPower{i} = bandpower(signalGamma{i}');
+    deltaPower{i} = bandpower(signalDelta{i}');
+    thetaPower{i} = bandpower(signalTheta{i}');
+end
+aurosalBA = {}; % wzor 2.3
+valence = {}; % wzor 2.1
+asymmetryF4F3 = {}; %wzor 2.6
+asymmetryF8F7 = {}; %wzor 2.7
+figure
+hold on
+for i = 1:max(size(signalVideo))
+    aurosalBA{i} = (betaPower{i}(1,6)+betaPower{i}(1,4))./(alphaPower{i}(1,6)+alphaPower{i}(1,4));
+    valence{i} = (alphaPower{i}(1,6)/betaPower{i}(1,6)) - (alphaPower{i}(1,4)/betaPower{i}(1,4));
+    plot( valence{i}, aurosalBA{i},'*');
+    text(valence{i}, aurosalBA{i},int2str(i),'VerticalAlignment','top','HorizontalAlignment','left')
+end
