@@ -27,9 +27,7 @@ for i = 4:3:33
 end
 %przeanalizowac sygnal zgodnie z algorytmem
 %odszumianie
-plot(signalCalibrationOpen(1,:))
-figure(2)
-plot(signalCalibrationClose(1,:))
+
 %filtracja pasmowa
 signalDelta = {};
 signalTheta = {};
@@ -56,15 +54,28 @@ for i = 1:max(size(signalVideo))
     deltaPower{i} = bandpower(signalDelta{i}');
     thetaPower{i} = bandpower(signalTheta{i}');
 end
-aurosalBA = {}; % wzor 2.3
-valence = {}; % wzor 2.1
-asymmetryF4F3 = {}; %wzor 2.6
-asymmetryF8F7 = {}; %wzor 2.7
+aurosalBA = []; % wzor 2.3
+valence = []; % wzor 2.1
+asymmetryF4F3 = []; %wzor 2.6
+asymmetryF8F7 = []; %wzor 2.7
 figure
 hold on
 for i = 1:max(size(signalVideo))
-    aurosalBA{i} = (betaPower{i}(1,6)+betaPower{i}(1,4))./(alphaPower{i}(1,6)+alphaPower{i}(1,4));
-    valence{i} = (alphaPower{i}(1,6)/betaPower{i}(1,6)) - (alphaPower{i}(1,4)/betaPower{i}(1,4));
-    plot( valence{i}, aurosalBA{i},'*');
-    text(valence{i}, aurosalBA{i},int2str(i),'VerticalAlignment','top','HorizontalAlignment','left')
+    aurosalBA(i) = (betaPower{i}(1,6)+betaPower{i}(1,4))./(alphaPower{i}(1,6)+alphaPower{i}(1,4));
+    valence(i) = (alphaPower{i}(1,6)/betaPower{i}(1,6)) - (alphaPower{i}(1,4)/betaPower{i}(1,4));
+    plot(valence(i), aurosalBA(i),'*');
+    text(valence(i), aurosalBA(i),int2str(i),'VerticalAlignment','top','HorizontalAlignment','left')
+    
+    asymmetryF4F3(i) = log(alphaPower{i}(1,6)) - log(alphaPower{i}(1,4));
+    asymmetryF8F7(i) = log(alphaPower{i}(1,7)) - log(alphaPower{i}(1,3));
+    
 end
+figure
+subplot(4,1,1)
+plot(valence)
+subplot(4,1,2)
+plot(aurosalBA)
+subplot(4,1,3)
+plot(asymmetryF4F3)
+subplot(4,1,4)
+plot(asymmetryF8F7)
