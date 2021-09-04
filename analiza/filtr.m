@@ -1,10 +1,8 @@
 function [signalFilter] = filtr(signal,low,high,fs)
-[a, b] = butter(2,[low high]/(fs/2),'bandpass');
-[w, k] = size(signal);
-signalFilter = [];
-for i = 1:w
-    signalFilter(i,:) = filter(a,b,signal(i,:));
-end
-signalFilter;
+    buffor = 0.5;
+    order = 4;
+    [a, b] = butter(order,[low-buffor high+buffor]/(fs/2),'bandpass');
+    [w, k] = size(signal);
+    signalFilter = filter(a,b,signal);
 end
 
