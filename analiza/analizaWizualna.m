@@ -48,7 +48,13 @@ for i = 1:max(size(data)) %petla po badanych
     plotsPerPerson(bands{i},i);
 end
 
-for i = 1:max(intervals) %petla po filmach
+for i = 1:max(size(intervals)) %petla po filmach
     sigVideo = cellfun(@(v)v(i),bands);
     plotsPerVideo(sigVideo,i);
+end
+
+for i = 1:size(bands{1}{1},1)% petla po kanalach
+    for j =1:size(bands{1}{1},2) %petla po pasmach
+        temp = plotsPerChannelBand(bands,i,j);
+    end
 end

@@ -1,6 +1,6 @@
 function [] = plotsPerPerson(data, personNum)
     
-    bandsName = ["theta", "alfa", "SMR", "beta 1", "beta 2"]
+    bandsName = ["theta", "alfa", "SMR", "beta 1", "beta 2"];
     for i = 1:5
         figure
         v = zeros(19,10);
