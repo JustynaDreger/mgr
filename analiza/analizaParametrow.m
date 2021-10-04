@@ -12,13 +12,10 @@ calibration = {};
 it = 1;
 for i = 1:size(paths,1)
     if paths(i).name ~= "." & paths(i).name ~= ".."
-        [calibration{it}, data{it}] = readDataWithCalibration(strcat(catalog,paths(i).name));
+        [calibration{it}, data{it}] = readDataWithCalibration(strcat(catalog,paths(i).name),i);
         it = it + 1;
     end
 end
-
-%przetworzenie sygnalu
-
 
 %poczatek i koniec fragmentu w sekundach
 intervals = [0 10, %fa
@@ -61,16 +58,17 @@ for i = 1:max(size(data))
     bandsNorm{i} = normalization(bands{i},bandsCal{i});
 end
 
-% Mając wyznaczone wartości mocy może Pani przystąpić do próby rozpoznawania emocji.
-% 
+
 % 1) Na początek proponuję policzyć pobudzenie (arousal) (z wykorzystaniem elektrod F3 i F4) z każdego filmu 
 %dla każdego uczestnika i porównać z emocjami, które uczestnicy Ci raportowali.
 % 
+
 % 2) Następnie, jeżeli da się pogrupować filmy w jakieś 3-4 grupy emocjonalne (np. wywołujące radość, smutek i spokój), 
 %to proponuję zrobić analizę wariancji (anova) i sprawdzić czy arousal wszystkich uczestników razem różni się istotnie 
 %między tymi grupami. Jeżeli nie da się pogrupować filmów, to po prostu trzeba będzie wybrać np. 3 filmy o skrajnych emocjach, 
 %zrobić na nich anovę, potem kolejne 3 filmy o innych emocjach i pozostałe 4. To może pozwolić na stwierdzenie, 
 %czy na podstawie tego indeksu możemy wnioskować o rozpoznaniu emocji, które zgłasza uczestnik.
 % 
+
 % 3) Następnie te kroki trzeba będzie powtórzyć dla indeksu asymetrii (z elektrodami F3 i F4; F7 i F8; 
 %oraz z wszystkimi z lewej i prawej półkuli). Ale to później, najpierw proszę zrobić arousal.

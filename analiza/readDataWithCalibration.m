@@ -1,6 +1,9 @@
-function [signalCalibrationOpen,signalVideo] = readDataWithCalibration(path)
+function [signalCalibrationOpen,signalVideo] = readDataWithCalibration(path, it)
     data = load(path);
     signal = data.dane_wynikowe.EEG_signal;
+    
+    %przetworzenie sygnalu
+    signal = signalProcess(signal,it);
     
     %podzielic dane dla kazdego etapu
     events = data.dane_wynikowe.Events{:,[1 4]}; %nazwy eventow z czasem ich rozpoczecia
@@ -9,9 +12,11 @@ function [signalCalibrationOpen,signalVideo] = readDataWithCalibration(path)
     for i=2:length(events)
         eventSignal{i-1} = signal(:,(time<str2num(cell2mat(events(i,1))))&(time>=str2num(cell2mat(events(i-1,1)))));
     end
+    
     %sygnal dla kalibracji
     %signalCalibrationClose = eventSignal{2};
     signalCalibrationOpen = eventSignal{3};
+    
     %wybrac dane dla kazdego video
     signalVideo = {};
     it = 1;
