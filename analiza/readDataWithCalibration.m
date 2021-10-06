@@ -4,6 +4,16 @@ function [signalCalibrationOpen,signalVideo] = readDataWithCalibration(path, it)
     
     %przetworzenie sygnalu
     signal = signalProcess(signal,it);
+
+%     if mod(it-3,4)==0
+%         figure('units','normalized','outerposition',[0 0 1 1])
+%     end
+%     subplot(4,1,mod(it-3,4)+1)
+%     plot(1:size(signal,2),signal(1,:))
+%     xlim([1 size(signal,2)])
+%     xlabel('Numer próbki') 
+%     ylabel('Wartość sygnału') 
+%     title(strcat('Badany nr ',num2str(it-2)))
     
     %podzielic dane dla kazdego etapu
     events = data.dane_wynikowe.Events{:,[1 4]}; %nazwy eventow z czasem ich rozpoczecia

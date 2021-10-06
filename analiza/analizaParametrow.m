@@ -10,6 +10,7 @@ paths = dir(catalog); %katalog z danymi
 data = {};
 calibration = {};
 it = 1;
+
 for i = 1:size(paths,1)
     if paths(i).name ~= "." & paths(i).name ~= ".."
         [calibration{it}, data{it}] = readDataWithCalibration(strcat(catalog,paths(i).name),i);
