@@ -2,6 +2,9 @@ function [signalVideo] = readData(path)
     data = load(path);
     signal = data.dane_wynikowe.EEG_signal;
     
+    
+    
+    
     %podzielic dane dla kazdego etapu
     events = data.dane_wynikowe.Events{:,[1 4]}; %nazwy eventow z czasem ich rozpoczecia
     time = data.dane_wynikowe.EEG_time;

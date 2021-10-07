@@ -63,7 +63,10 @@ end
 % 1) Na początek proponuję policzyć pobudzenie (arousal) (z wykorzystaniem elektrod F3 i F4) z każdego filmu 
 %dla każdego uczestnika i porównać z emocjami, które uczestnicy Ci raportowali.
 % 
-
+arousal = {};
+for i = 1:max(size(data))
+    arousal{i} = calcArousal(bandsNorm{i});
+end
 % 2) Następnie, jeżeli da się pogrupować filmy w jakieś 3-4 grupy emocjonalne (np. wywołujące radość, smutek i spokój), 
 %to proponuję zrobić analizę wariancji (anova) i sprawdzić czy arousal wszystkich uczestników razem różni się istotnie 
 %między tymi grupami. Jeżeli nie da się pogrupować filmów, to po prostu trzeba będzie wybrać np. 3 filmy o skrajnych emocjach, 
