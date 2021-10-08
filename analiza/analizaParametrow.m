@@ -62,7 +62,7 @@ end
 
 % 1) Na początek proponuję policzyć pobudzenie (arousal) (z wykorzystaniem elektrod F3 i F4) z każdego filmu 
 %dla każdego uczestnika i porównać z emocjami, które uczestnicy Ci raportowali.
-% 
+%pobudzenie
 arousal = {};
 for i = 1:max(size(data))
     arousal{i} = calcArousal(bandsNorm{i});
@@ -76,3 +76,7 @@ end
 
 % 3) Następnie te kroki trzeba będzie powtórzyć dla indeksu asymetrii (z elektrodami F3 i F4; F7 i F8; 
 %oraz z wszystkimi z lewej i prawej półkuli). Ale to później, najpierw proszę zrobić arousal.
+assymetry = {};
+for i = 1:max(size(data))
+    assymetry{i} = calcAssymetry(bandsNorm{i});
+end
