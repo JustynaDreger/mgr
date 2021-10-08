@@ -1,4 +1,13 @@
 function [signal] = signalProcess(signal,it)
+
+%Trzeba więc najpierw z pełnej macierzy danych wyciągnąć dane odnoszące się 
+%do tych 12 eventów (w zasadzie 11, bo kalibracja a zamkniętymi oczami się raczej nie przyda),
+%następnie połączyć te eventy w 1 długi sygnał, zrobić preprocessing z percentylami, 
+%potem zrobić ICA i ponownie rozłożyć oczyszczony sygnał na składowe.
+
+
+
+
     for channel=1:size(signal,1)
                 if it == 11 %dla badanego nr 9
                      prc10 = prctile(signal(channel,:),3);
