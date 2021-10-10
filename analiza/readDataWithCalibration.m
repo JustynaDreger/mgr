@@ -1,6 +1,13 @@
 function [signalCalibrationOpen,signalVideo] = readDataWithCalibration(path, it)
     data = load(path);
-    signal = data.dane_wynikowe.EEG_signal;
+    %Trzeba więc najpierw z pełnej macierzy danych wyciągnąć dane odnoszące się 
+%do tych 12 eventów (w zasadzie 11, bo kalibracja a zamkniętymi oczami się raczej nie przyda),
+%następnie połączyć te eventy w 1 długi sygnał, zrobić preprocessing z percentylami, 
+%potem zrobić ICA i ponownie rozłożyć oczyszczony sygnał na składowe.
+
+    [signal, time] = selectSignal(data);
+    
+    %signal = data.dane_wynikowe.EEG_signal;
     
     %przetworzenie sygnalu
     signal = signalProcess(signal,it);
@@ -17,10 +24,14 @@ function [signalCalibrationOpen,signalVideo] = readDataWithCalibration(path, it)
     
     %podzielic dane dla kazdego etapu
     events = data.dane_wynikowe.Events{:,[1 4]}; %nazwy eventow z czasem ich rozpoczecia
-    time = data.dane_wynikowe.EEG_time;
+    %time = data.dane_wynikowe.EEG_time;
     eventSignal = {};
-    for i=2:length(events)
-        eventSignal{i-1} = signal(:,(time<str2num(cell2mat(events(i,1))))&(time>=str2num(cell2mat(events(i-1,1)))));
+    it = 1;
+    for i=[2 3 4:3:33]
+        it
+        i
+        eventSignal{it} = signal(:,(time<str2num(cell2mat(events(i,1))))&(time>=str2num(cell2mat(events(i-1,1)))));
+        it = it + 1;
     end
     
     %sygnal dla kalibracji
@@ -30,7 +41,7 @@ function [signalCalibrationOpen,signalVideo] = readDataWithCalibration(path, it)
     %wybrac dane dla kazdego video
     signalVideo = {};
     it = 1;
-    for i = 4:3:33
+    for i = 3:size(eventSignal,2)
         signalVideo{it} = eventSignal{i};
         it = it + 1;
     end
