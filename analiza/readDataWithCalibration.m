@@ -27,16 +27,14 @@ function [signalCalibrationOpen,signalVideo] = readDataWithCalibration(path, it)
     %time = data.dane_wynikowe.EEG_time;
     eventSignal = {};
     it = 1;
-    for i=[2 3 4:3:33]
-        it
-        i
+    for i=[2 3 4:3:33]+1
         eventSignal{it} = signal(:,(time<str2num(cell2mat(events(i,1))))&(time>=str2num(cell2mat(events(i-1,1)))));
         it = it + 1;
     end
-    
+
     %sygnal dla kalibracji
-    %signalCalibrationClose = eventSignal{2};
-    signalCalibrationOpen = eventSignal{3};
+    %signalCalibrationClose = eventSignal{1};
+    signalCalibrationOpen = eventSignal{2};
     
     %wybrac dane dla kazdego video
     signalVideo = {};
@@ -45,5 +43,6 @@ function [signalCalibrationOpen,signalVideo] = readDataWithCalibration(path, it)
         signalVideo{it} = eventSignal{i};
         it = it + 1;
     end
+    
 end
 
