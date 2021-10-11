@@ -22,6 +22,9 @@ function [signalCalibrationOpen,signalVideo] = readDataWithCalibration(path, it)
 %     ylabel('Wartość sygnału') 
 %     title(strcat('Badany nr ',num2str(it-2)))
     
+    %ICA
+    signal = ica(signal, it);
+
     %podzielic dane dla kazdego etapu
     events = data.dane_wynikowe.Events{:,[1 4]}; %nazwy eventow z czasem ich rozpoczecia
     %time = data.dane_wynikowe.EEG_time;
