@@ -68,9 +68,10 @@ valence = {};
 for i = 1:max(size(data))
     arousal{i} = calcArousal(bandsNorm{i});
     valence{i} = calcValence(bandsNorm{i});
+    plotEmotion(arousal{i}, valence{i},0);
 end
 
-plotEmotion(arousal, valence);
+plotEmotion(arousal, valence,1);
 % 2) Następnie, jeżeli da się pogrupować filmy w jakieś 3-4 grupy emocjonalne (np. wywołujące radość, smutek i spokój), 
 %to proponuję zrobić analizę wariancji (anova) i sprawdzić czy arousal wszystkich uczestników razem różni się istotnie 
 %między tymi grupami. Jeżeli nie da się pogrupować filmów, to po prostu trzeba będzie wybrać np. 3 filmy o skrajnych emocjach, 
