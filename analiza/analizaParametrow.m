@@ -60,9 +60,8 @@ for i = 1:max(size(data))
 end
 
 
-% 1) Na początek proponuję policzyć pobudzenie (arousal) (z wykorzystaniem elektrod F3 i F4) z każdego filmu 
-%dla każdego uczestnika i porównać z emocjami, które uczestnicy Ci raportowali.
-%pobudzenie
+% 
+%pobudzenie i przyjemnosc
 arousal = {};
 valence = {};
 for i = 1:max(size(data))
@@ -72,12 +71,7 @@ for i = 1:max(size(data))
 end
 
 plotEmotion(arousal, valence,1);
-% 2) Następnie, jeżeli da się pogrupować filmy w jakieś 3-4 grupy emocjonalne (np. wywołujące radość, smutek i spokój), 
-%to proponuję zrobić analizę wariancji (anova) i sprawdzić czy arousal wszystkich uczestników razem różni się istotnie 
-%między tymi grupami. Jeżeli nie da się pogrupować filmów, to po prostu trzeba będzie wybrać np. 3 filmy o skrajnych emocjach, 
-%zrobić na nich anovę, potem kolejne 3 filmy o innych emocjach i pozostałe 4. To może pozwolić na stwierdzenie, 
-%czy na podstawie tego indeksu możemy wnioskować o rozpoznaniu emocji, które zgłasza uczestnik.
-%
+% anova
 groups = [1 6 10; %radosc
     2 5 0; %podniecenie
     4 7 3; %smutek
@@ -90,10 +84,9 @@ for i = 1:size(groups,1)
     anovaValence{i} = calcAnova(valence, groups(i,:),0);
 end
 
-anovaBetweenGroupsArousal = calcAnova(arousal, [2 9],0); %miedzy radosc i strach
+anovaBetweenGroupsArousal = calcAnova(arousal, [2 9],0); %miedzy podniecenie i strach
 anovaBetweenGroupsValence = calcAnova(valence, [2 9],0);
-% 3) Następnie te kroki trzeba będzie powtórzyć dla indeksu asymetrii (z elektrodami F3 i F4; F7 i F8; 
-%oraz z wszystkimi z lewej i prawej półkuli). Ale to później, najpierw proszę zrobić arousal.
+%asymetria
 assymetry = {};
 for i = 1:max(size(data))
     assymetry{i} = calcAssymetry(bandsNorm{i});
