@@ -83,12 +83,14 @@ groups = [1 6 10; %radosc
     8 9 0; %strach
     ];
 anovaArousal = {};
+anovaValence = {};
 for i = 1:size(groups,1)
     anovaArousal{i} = calcAnova(arousal, groups(i,:),0);
+    anovaValence{i} = calcAnova(valence, groups(i,:),0);
 end
 
-anovaBetweenGroupsArousal = calcAnova(arousal, [1 9],0); %miedzy radosc i strach
-
+anovaBetweenGroupsArousal = calcAnova(arousal, [2 9],0); %miedzy radosc i strach
+anovaBetweenGroupsValence = calcAnova(valence, [2 9],0);
 % 3) Następnie te kroki trzeba będzie powtórzyć dla indeksu asymetrii (z elektrodami F3 i F4; F7 i F8; 
 %oraz z wszystkimi z lewej i prawej półkuli). Ale to później, najpierw proszę zrobić arousal.
 assymetry = {};
