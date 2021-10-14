@@ -19,16 +19,16 @@ for i = 1:size(paths,1)
 end
 
 %poczatek i koniec fragmentu w sekundach
-intervals = [0 10, %fa
-             10 20, %banderas
-             68 78, %allegro
-             5 15, %unicef
-             15 25, %torebki
-             4 14, %tymbark
-             16 26, %dkms
-             42 52, %pieski
-             163 173, %kobiety
-             5 15]; %lody
+intervals = [0 10, %fa radosc
+             10 20, %banderas podniecenie
+             68 78, %allegro smutek
+             5 15, %unicef smutek
+             15 25, %torebki podniecenie
+             4 14, %tymbark radosc
+             16 26, %dkms smutek
+             42 52, %pieski smutek i strach
+             163 173, %kobiety smutek i strach
+             5 15]; %lody radosc
          
 %wybranie fragmentu z sygnalu
 signals = {};
@@ -64,15 +64,30 @@ end
 %dla każdego uczestnika i porównać z emocjami, które uczestnicy Ci raportowali.
 %pobudzenie
 arousal = {};
+valence = {};
 for i = 1:max(size(data))
     arousal{i} = calcArousal(bandsNorm{i});
+    valence{i} = calcValence(bandsNorm{i});
 end
+
+plotEmotion(arousal, valence);
 % 2) Następnie, jeżeli da się pogrupować filmy w jakieś 3-4 grupy emocjonalne (np. wywołujące radość, smutek i spokój), 
 %to proponuję zrobić analizę wariancji (anova) i sprawdzić czy arousal wszystkich uczestników razem różni się istotnie 
 %między tymi grupami. Jeżeli nie da się pogrupować filmów, to po prostu trzeba będzie wybrać np. 3 filmy o skrajnych emocjach, 
 %zrobić na nich anovę, potem kolejne 3 filmy o innych emocjach i pozostałe 4. To może pozwolić na stwierdzenie, 
 %czy na podstawie tego indeksu możemy wnioskować o rozpoznaniu emocji, które zgłasza uczestnik.
-% 
+%
+groups = [1 6 10; %radosc
+    2 5 0; %podniecenie
+    4 7 3; %smutek
+    8 9 0; %strach
+    ];
+anovaArousal = {};
+for i = 1:size(groups,1)
+    anovaArousal{i} = calcAnova(arousal, groups(i,:),0);
+end
+
+anovaBetweenGroupsArousal = calcAnova(arousal, [1 9],0); %miedzy radosc i strach
 
 % 3) Następnie te kroki trzeba będzie powtórzyć dla indeksu asymetrii (z elektrodami F3 i F4; F7 i F8; 
 %oraz z wszystkimi z lewej i prawej półkuli). Ale to później, najpierw proszę zrobić arousal.
@@ -80,3 +95,8 @@ assymetry = {};
 for i = 1:max(size(data))
     assymetry{i} = calcAssymetry(bandsNorm{i});
 end
+anovaAssymetry = {};
+for i = 1:size(groups,1)
+    anovaAssymetry{i} = calcAnova(assymetry, groups(i,:),1);
+end
+anovaBetweenGroupsAssymetry = calcAnova(assymetry, [2 9],1);

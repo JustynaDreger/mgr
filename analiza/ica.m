@@ -1,7 +1,7 @@
-function [signal] = ica(signal, i)
+function [signalClear] = ica(signal, i)
     signalClear = [];
-    figure()
-    plot(signal(1,:))
+%     figure()
+%     plot(signal(1,:))
     %icasig - maciesz skladowych
     %A - macierz miksujaca
     %W - macierz demiksujaca
@@ -34,13 +34,11 @@ function [signal] = ica(signal, i)
         end
     end
 
-    %Wyswietlenie wykresow skladowych po usunieciu
-
     %Zlozenie i wyświetlenie sygnalow
     signalClear = A * icasig;
 
-    hold on
-    %figure()
-    plot(signalClear(1,:))
+%     hold on
+%     %figure()
+%     plot(signalClear(1,:))
 end
 
