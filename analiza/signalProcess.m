@@ -14,7 +14,8 @@ function [signal] = signalProcess(signal,it)
                 sig = signal(channel,:);
                 sig(locsMax) = [];
                 sig(locsMin) = [];
-                m = mean(sig);
+                prc10 = prctile(sig,3);
+                prc90 = prctile(sig,97);
                 for loc = locsMax
                     if loc-buff>1
                         lMin = loc-buff;
@@ -26,7 +27,7 @@ function [signal] = signalProcess(signal,it)
                     else
                         lMax = loc+buff;
                     end
-                    signal(channel,lMin:lMax) = m;    
+                    signal(channel,lMin:lMax) = prc90;    
                 end
                 for loc = locsMin
                     if loc-buff>1
@@ -39,7 +40,7 @@ function [signal] = signalProcess(signal,it)
                     else
                         lMax = loc+buff;
                     end
-                    signal(channel,lMin:lMax) = m;    
+                    signal(channel,lMin:lMax) = prc10;    
                 end
             end
 end

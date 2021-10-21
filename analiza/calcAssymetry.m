@@ -6,8 +6,8 @@ function [assymetry] = calcAssymetry(dat)
         
         Fp1A = dat{i}{1,2}{1}; %alpha
         Fp2A = dat{i}{2,2}{1};
-        F3A = dat{i}{3,2}{1};
-        F4A = dat{i}{4,2}{1};
+        F3A = dat{i}{4,2}{1};
+        F4A = dat{i}{6,2}{1};
         
         assymetry{i}{1}(1) = log(F4A) - log(F3A); % wzor 2.6
         assymetry{i}{1}(2) = log(Fp2A) - log(Fp1A);

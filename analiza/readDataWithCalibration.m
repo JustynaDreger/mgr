@@ -1,17 +1,20 @@
-function [signalCalibrationOpen,signalVideo] = readDataWithCalibration(path, it)
+function [signalCalibrationOpen,signalVideo,signalPrzed,signalPo,signalICA] = readDataWithCalibration(path, it)
     data = load(path);
-    %Trzeba więc najpierw z pełnej macierzy danych wyciągnąć dane odnoszące się 
-%do tych 12 eventów (w zasadzie 11, bo kalibracja a zamkniętymi oczami się raczej nie przyda),
-%następnie połączyć te eventy w 1 długi sygnał, zrobić preprocessing z percentylami, 
-%potem zrobić ICA i ponownie rozłożyć oczyszczony sygnał na składowe.
 
     [signal, time] = selectSignal(data);
+    signalPrzed = signal;
     
+%     figure()
+%      for el = 1:19
+%          subplot(5,4,el)
+%          plot(signal(el,:))
+%      end
+
     %signal = data.dane_wynikowe.EEG_signal;
     
     %przetworzenie sygnalu
     signal = signalProcess(signal,it);
-
+    signalPo = signal;
 %     if mod(it-3,4)==0
 %         figure('units','normalized','outerposition',[0 0 1 1])
 %     end
@@ -21,10 +24,24 @@ function [signalCalibrationOpen,signalVideo] = readDataWithCalibration(path, it)
 %     xlabel('Numer próbki') 
 %     ylabel('Wartość sygnału') 
 %     title(strcat('Badany nr ',num2str(it-2)))
+%figure()
+%for sub = 1:16
+%     for el = 1:19
+%         subplot(5,4,el)
+%         plot(signal(el,:))
+%     end
+%end
     
     %ICA
     signal = ica(signal, it);
-
+    signalICA = signal;
+%      figure()
+% % %for sub = 1:16
+%      for el = 1:19
+%          subplot(5,4,el)
+%          plot(signal(el,:))
+%      end
+%     
     %podzielic dane dla kazdego etapu
     events = data.dane_wynikowe.Events{:,[1 4]}; %nazwy eventow z czasem ich rozpoczecia
     %time = data.dane_wynikowe.EEG_time;

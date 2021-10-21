@@ -7,9 +7,21 @@ function [signalClear] = ica(signal, i)
     %W - macierz demiksujaca
     [icasig, A, W] = fastica(signal,'verbose','off');
     
+%     figure()
+%     for el = 1:19
+%         subplot(5,4,el)
+%         plot(signal(el,:))
+%     end
+%     
+%     figure()
+%     for el = 1:19
+%         subplot(5,4,el)
+%         plot(icasig(el,:))
+%     end
+    
     fs = 500;
     indeksy_skladowych={}; kryterium=[]; macierz_skladowych=[]; indeksy_do_usuniecia=[];
-    niechciane_pasma = [0 5];
+    niechciane_pasma = [0.1 5];
 
     %Wyznaczenie mocy składowych
     for skladowa=1:size(icasig,1)
@@ -34,9 +46,20 @@ function [signalClear] = ica(signal, i)
         end
     end
 
+%     figure()
+%     for el = 1:19
+%         subplot(5,4,el)
+%         plot(icasig(el,:))
+%     end
+    
     %Zlozenie i wyświetlenie sygnalow
     signalClear = A * icasig;
-
+% 
+%     figure()
+%     for el = 1:19
+%         subplot(5,4,el)
+%         plot(signalClear(el,:))
+%     end
 %     hold on
 %     %figure()
 %     plot(signalClear(1,:))

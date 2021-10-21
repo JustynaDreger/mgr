@@ -10,10 +10,12 @@ paths = dir(catalog); %katalog z danymi
 data = {};
 calibration = {};
 it = 1;
-
+signalPrzed={};
+signalPo={};
+signalICA={};
 for i = 1:size(paths,1)
     if paths(i).name ~= "." & paths(i).name ~= ".."
-        [calibration{it}, data{it}] = readDataWithCalibration(strcat(catalog,paths(i).name),i);
+        [calibration{it}, data{it},signalPrzed{it},signalPo{it},signalICA{it}] = readDataWithCalibration(strcat(catalog,paths(i).name),i);
         it = it + 1;
     end
 end
@@ -60,17 +62,17 @@ for i = 1:max(size(data))
 end
 
 
-% 
+
 %pobudzenie i przyjemnosc
 arousal = {};
 valence = {};
 for i = 1:max(size(data))
     arousal{i} = calcArousal(bandsNorm{i});
     valence{i} = calcValence(bandsNorm{i});
-    plotEmotion(arousal{i}, valence{i},0);
+    plotEmotion(arousal{i}, valence{i},0,i);
 end
 
-plotEmotion(arousal, valence,1);
+%plotEmotion(arousal, valence,1);
 % anova
 groups = [1 6 10; %radosc
     2 5 0; %podniecenie

@@ -1,4 +1,4 @@
-function [] = plotEmotion(arousal, valence,p)
+function [] = plotEmotion(arousal, valence,p,os)
     if p == 0
         figure()
         labels = string(1:10);
@@ -14,7 +14,7 @@ function [] = plotEmotion(arousal, valence,p)
         %legend(strcat("Osoba"))
         xlabel('Valence') 
         ylabel('Arousal') 
-        title(strcat("Emocje (beta 1)"))
+        title(strcat("Emocje (beta) osoby nr ",num2str(os)))
 
         figure()
         labels = string(1:10);
@@ -30,7 +30,7 @@ function [] = plotEmotion(arousal, valence,p)
         %legend(strcat("Osoba "))
         xlabel('Valence') 
         ylabel('Arousal') 
-        title(strcat("Emocje (beta 2)"))
+        title(strcat("Emocje (beta 2) osoby nr ",num2str(os)))
     else
         C = [0, 0.4470, 0.7410;
              0, 0,      1;
